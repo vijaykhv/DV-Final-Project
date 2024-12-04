@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crime Trends in the U.S. (1979-2019)</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1>Crime Trends and Patterns in the U.S. (1979-2019)</h1>
+            <p>Explore the dynamic trends in violent and property crimes across the U.S. over the last four decades.</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Introduction Section -->
+        <section class="intro">
+            <div class="container">
+                <h2>Introduction</h2>
+                <p>The dataset includes violent crime, property crime, and population data, among others. The visualizations aim to highlight trends, identify outliers, and present relationships between different crime types over time, while enabling users to interact with the data for detailed insights.</p>
+            </div>
+        </section>
+
+        <!-- Choropleth Map Section -->
+        <section class="choropleth-section">
+            <div class="container">
+                <h2>Choropleth Map</h2>
+                <p>Visualize crime rates across states by selecting a year below:</p>
+                <div id="mapControls">
+                    <label for="yearSelect">Select Year:</label>
+                    <select id="yearSelect"></select>
+                    <button id="resetButton">Reset Zoom</button>
+                </div>
+                <div id="mapContainer">
+                    <!-- Map Section -->
+                    <div id="leftContainer">
+                        <svg id="map"></svg>
+                    </div>
+                    <!-- Right Container with Details and Graph -->
+                    <div id="rightContainer">
+                        <h3 id="stateName">Click on a state</h3>
+                        <div id="stateDetails">Details will appear here.</div>
+                        <!-- Line Graph Container -->
+                        <div id="lineGraphContainer"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cartogram Section -->
+        <section class="cartogram-section">
+            <div class="container">
+                <h2>Crime Trends Cartogram</h2>
+                <p>Discover how crime statistics vary across states in a cartogram view:</p>
+                <div id="controls">
+                    <label for="crimeSelect">Crime Category:</label>
+                    <select id="crimeSelect">
+                        <option value="violent_crime_rate">Violent Crime</option>
+                        <option value="property_crime_rate">Property Crime</option>
+                        <option value="rape_legacy_rate">Rape (Legacy)</option>
+                        <option value="aggravated_assault_rate">Aggravated Assault</option>
+                        <option value="homicide_rate">Homicide</option>
+                        <option value="robbery_rate">Robbery</option>
+                        <option value="burglary_rate">Burglary</option>
+                        <option value="larceny_rate">Larceny</option>
+                        <option value="motor_vehicle_theft_rate">Motor Vehicle Theft</option>
+                    </select>
+                    <label for="yearSlider">Year:</label>
+                    <input type="range" id="yearSlider" min="1979" max="2019" value="1979">
+                    <span id="yearLabel">1979</span>
+                </div>
+                <div id="cartogram-container">
+                    <div id="cartogram">
+                        <!-- Cartogram visualization will go here -->
+                    </div>
+                    <div id="cartogram-legend">
+                        <div class="legend-title">Crime Rate Legend</div>
+                        <div class="legend-color-bar"></div>
+                        <div class="legend-labels">
+                            <span>Low</span>
+                            <span>High</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Crime Trends Project. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <!-- Script Files -->
+    <script src="choropleth.js"></script>
+    <script src="cartogram.js"></script>
+</body>
+</html>
